@@ -42,3 +42,4 @@ export const Certifications = () => {
   );
 };
 // Add the Certifications component to the App.js file to render it on the website.
+export default Certifications;
