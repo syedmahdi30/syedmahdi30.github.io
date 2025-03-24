@@ -41,7 +41,7 @@ export const ContactForm = () => {
       <Container>
         <Row className="align-items-center">
           <Col md={6}>
-            <img src={require('../assets/images/contact-img.svg').default} alt="Contact Us" />
+          <img src="https://source.unsplash.com/400x300/?contact,communication" alt="Contact Us" />
           </Col>
           <Col md={6}>
             <Form onSubmit={handleSubmit}>

@@ -2,7 +2,7 @@
 import React from 'react';
 import NavigationBar from './components/NavigationBar';
 import Banner from './components/Banner';
-import { Certification } from './components/Certification';
+import { Certifications } from './components/Certifications';
 import { Projects } from './components/Projects';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Banner />
-      <Certification />
+      <Certifications />
       <Projects />
       <ContactForm />
       <Footer />

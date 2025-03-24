@@ -1,8 +1,8 @@
 // NavigationBar.js
 import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import logo from '../assets/images/logo.svg';
-import navIcon1 from '../assets/images/navIcon1.svg';
+const logo = "https://via.placeholder.com/100x50?text=Logo";
+const navIcon1 = "https://via.placeholder.com/30x30?text=Icon1";
 // (Import additional icons as needed)
 
 const NavigationBar = () => {

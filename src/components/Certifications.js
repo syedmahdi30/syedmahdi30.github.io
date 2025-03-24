@@ -4,9 +4,9 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 // Import your certification images or badges
-import cert1 from '../assets/images/cert1.png';
-import cert2 from '../assets/images/cert2.png';
-import cert3 from '../assets/images/cert3.png';
+const cert1 = "https://source.unsplash.com/300x200/?certificate";
+const cert2 = "https://source.unsplash.com/300x200/?diploma";
+const cert3 = "https://source.unsplash.com/300x200/?achievement";
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },

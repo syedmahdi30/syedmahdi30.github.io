@@ -1,10 +1,11 @@
 // Banner.js
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import headerImg from '../assets/images/header-img.svg';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
 import 'animate.css';
+
+const headerImg = "https://via.placeholder.com/500x500?text=Header";
 
 const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);

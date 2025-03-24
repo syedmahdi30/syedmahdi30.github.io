@@ -1,8 +1,9 @@
 // Footer.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import logo from '../assets/images/logo.svg';
 import { MailchimpForm } from './MailchimpForm';
+
+const logo = "https://via.placeholder.com/100x50?text=Logo";
 
 export const Footer = () => {
   return (

@@ -2,9 +2,9 @@
 import React from 'react';
 import { Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import ProjectCard from './ProjectCard';
-import projImg1 from '../assets/images/project-img1.png';
-import projImg2 from '../assets/images/project-img2.png';
-import projImg3 from '../assets/images/project-img3.png';
+const projImg1 = "https://source.unsplash.com/300x200/?code,website";
+const projImg2 = "https://source.unsplash.com/300x200/?design,app";
+const projImg3 = "https://source.unsplash.com/300x200/?uiux,development";
 
 const projects = [
   { title: "Project One", description: "Description for project one", imgUrl: projImg1 },
