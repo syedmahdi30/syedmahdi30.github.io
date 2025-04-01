@@ -11,7 +11,7 @@ const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const toRotate = ["Web Developer", "Designer", "UI/UX Enthusiast"];
+  const toRotate = ["Software Engineer", "Web Developer", "Aspiring AI Engineer", "Aspiring Data Analyst", "Aspiring Project Manager"];
   const period = 2000;
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
@@ -51,7 +51,7 @@ const Banner = () => {
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>{`Hi! I'm a `}<span className="wrap">{text}</span></h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc sed velit dignissim sodales ut eu sem.</p>
+                  <p>My name is Syed Islam. I am a Software Engineer with an extreme interest in AI and Data Science.</p>
                   <button onClick={() => console.log('Connect clicked')}>
                     Let's Connect <ArrowRightCircle size={25} />
                   </button>

@@ -18,7 +18,7 @@ export const Footer = () => {
               <a href="#"><img src="path-to-linkedin-icon" alt="LinkedIn" /></a>
               {/* Add additional social links */}
             </div>
-            <p>© 2025 Your Name. All Rights Reserved</p>
+            <p>© 2025 Syed Islam. All Rights Reserved</p>
           </Col>
         </Row>
         <Row>
