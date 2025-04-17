@@ -42,6 +42,13 @@ const Banner = () => {
     }
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="banner" id="home">
       <Container>
@@ -53,7 +60,7 @@ const Banner = () => {
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>{`Hi! I'm an Aspiring `}<span className="wrap">{text}</span></h1>
                   <p>Hi, I'm Syed Islam — a 4th-year Computer Science + Business Applications student at UCR and soon-to-be AI/ML Master's student at UT Austin, where I'll be diving deep into the future of intelligent systems.</p>
-                  <button onClick={() => console.log('Connect clicked')}>
+                  <button onClick={() => scrollToSection('connect')}>
                     Let's Connect <ArrowRightCircle size={25} />
                   </button>
                 </div>

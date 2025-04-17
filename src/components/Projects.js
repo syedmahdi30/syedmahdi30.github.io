@@ -14,22 +14,22 @@ const responsive = {
 
 const projects = [
   { 
-    title: "Project One", 
-    description: "A detailed description of project one. This project demonstrates my skills in web development and showcases innovative solutions to real-world problems.", 
-    imgUrl: "https://source.unsplash.com/300x200/?code,website",
-    projectUrl: "https://github.com/yourusername/project1"
+    title: "AI-Powered Portfolio Analyzer", 
+    description: "Developed a machine learning model that analyzes investment portfolios and provides personalized recommendations. Built with Python, TensorFlow, and React. Features include risk assessment, performance prediction, and automated rebalancing suggestions.", 
+    imgUrl: "/images/projects/portfolio-analyzer.jpg",
+    projectUrl: "https://github.com/yourusername/portfolio-analyzer"
   },
   { 
-    title: "Project Two", 
-    description: "Description for project two. This project highlights my expertise in UI/UX design and frontend development.", 
-    imgUrl: "https://source.unsplash.com/300x200/?design,app",
-    projectUrl: "https://github.com/yourusername/project2"
+    title: "Smart Campus Navigation", 
+    description: "Created an interactive campus navigation system using React and Google Maps API. Includes real-time location tracking, optimized route planning, and accessibility features for students with disabilities.", 
+    imgUrl: "/images/projects/campus-nav.jpg",
+    projectUrl: "https://github.com/yourusername/campus-navigation"
   },
   { 
-    title: "Project Three", 
-    description: "Description for project three. This project showcases my backend development skills and database management capabilities.", 
-    imgUrl: "https://source.unsplash.com/300x200/?uiux,development",
-    projectUrl: "https://github.com/yourusername/project3"
+    title: "Data Visualization Dashboard", 
+    description: "Built an interactive dashboard for visualizing complex datasets using D3.js and React. Features include real-time data updates, customizable charts, and export functionality for reports.", 
+    imgUrl: "/images/projects/dashboard.jpg",
+    projectUrl: "https://github.com/yourusername/data-dashboard"
   },
 ];
 
@@ -40,7 +40,20 @@ export const Projects = () => {
         <div className="project-box">
           <h2>Projects</h2>
           <p>Here are some of the projects I've worked on. Click on a card to see more details.</p>
-          <Carousel responsive={responsive} infinite={true} className="project-slider">
+          <Carousel 
+            responsive={responsive} 
+            infinite={true} 
+            className="project-slider"
+            autoPlay={true}
+            autoPlaySpeed={5000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
             {projects.map((project, index) => (
               <div key={index} className="item">
                 <ProjectCard {...project} />
