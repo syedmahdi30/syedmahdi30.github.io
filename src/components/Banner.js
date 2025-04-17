@@ -5,13 +5,20 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
 import 'animate.css';
 
-const headerImg = "https://via.placeholder.com/500x500?text=Header";
-const headshot = "/images/headshot.jpg"; // Make sure to add your headshot image to the public/images folder
+// Array of headshot images
+const headshots = [
+  "/images/headshot.jpg",
+  "/images/headshot2.jpg",
+  "/images/headshot3.jpg",
+  "/images/headshot4.jpg"
+];
 
 const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
+  const [currentHeadshotIndex, setCurrentHeadshotIndex] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
   const toRotate = ["Software Engineer", "Web Developer", "AI Engineer", "Data Analyst", "Project Manager"];
   const period = 1000;
   const [delta, setDelta] = useState(150 - Math.random() * 50);
@@ -20,6 +27,27 @@ const Banner = () => {
     let ticker = setInterval(() => tick(), delta);
     return () => clearInterval(ticker);
   }, [text]);
+
+  // Headshot rotation effect
+  useEffect(() => {
+    const headshotInterval = setInterval(() => {
+      // Start the flip animation
+      setIsFlipping(true);
+      
+      // After the flip animation completes, update the image
+      setTimeout(() => {
+        setCurrentHeadshotIndex((prevIndex) => 
+          prevIndex === headshots.length - 1 ? 0 : prevIndex + 1
+        );
+        // Reset the flip state after a small delay to ensure smooth transition
+        setTimeout(() => {
+          setIsFlipping(false);
+        }, 50);
+      }, 1000); // Match this with the CSS transition duration
+    }, 8000); // Change headshot every 8 seconds
+
+    return () => clearInterval(headshotInterval);
+  }, []);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -68,8 +96,15 @@ const Banner = () => {
             </TrackVisibility>
           </Col>
           <Col xs={12} md={5}>
-            <div className="headshot-container">
-              <img src={headshot} alt="Syed Islam" className="headshot" />
+            <div className={`headshot-container ${isFlipping ? 'flipping' : ''}`}>
+              <div className="headshot-inner">
+                <div className="headshot-front">
+                  <img src={headshots[currentHeadshotIndex]} alt="Syed Islam" className="headshot" />
+                </div>
+                <div className="headshot-back">
+                  <img src={headshots[(currentHeadshotIndex + 1) % headshots.length]} alt="Syed Islam" className="headshot" />
+                </div>
+              </div>
               <div className="headshot-border"></div>
             </div>
           </Col>
