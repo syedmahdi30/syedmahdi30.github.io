@@ -6,14 +6,15 @@ import TrackVisibility from 'react-on-screen';
 import 'animate.css';
 
 const headerImg = "https://via.placeholder.com/500x500?text=Header";
+const headshot = "/images/headshot.jpg"; // Make sure to add your headshot image to the public/images folder
 
 const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const toRotate = ["Software Engineer", "Web Developer", "Aspiring AI Engineer", "Aspiring Data Analyst", "Aspiring Project Manager"];
-  const period = 2000;
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const toRotate = ["Software Engineer", "Web Developer", "AI Engineer", "Data Analyst", "Project Manager"];
+  const period = 1000;
+  const [delta, setDelta] = useState(150 - Math.random() * 50);
 
   useEffect(() => {
     let ticker = setInterval(() => tick(), delta);
@@ -50,8 +51,8 @@ const Banner = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>{`Hi! I'm a `}<span className="wrap">{text}</span></h1>
-                  <p>My name is Syed Islam. I am a Software Engineer with an extreme interest in AI and Data Science.</p>
+                  <h1>{`Hi! I'm an Aspiring `}<span className="wrap">{text}</span></h1>
+                  <p>Hi, I'm Syed Islam — a 4th-year Computer Science + Business Applications student at UCR and soon-to-be AI/ML Master's student at UT Austin, where I'll be diving deep into the future of intelligent systems.</p>
                   <button onClick={() => console.log('Connect clicked')}>
                     Let's Connect <ArrowRightCircle size={25} />
                   </button>
@@ -60,7 +61,10 @@ const Banner = () => {
             </TrackVisibility>
           </Col>
           <Col xs={12} md={5}>
-            <img src={headerImg} alt="Header" />
+            <div className="headshot-container">
+              <img src={headshot} alt="Syed Islam" className="headshot" />
+              <div className="headshot-border"></div>
+            </div>
           </Col>
         </Row>
       </Container>

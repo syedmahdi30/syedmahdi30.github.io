@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 const logo = "https://via.placeholder.com/100x50?text=Logo";
 const navIcon1 = "https://via.placeholder.com/30x30?text=Icon1";
@@ -7,7 +6,6 @@ const navIcon1 = "https://via.placeholder.com/30x30?text=Icon1";
 const NavigationBar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
-  const { toggleTheme, theme } = useContext(ThemeContext); // Access theme context
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -18,7 +16,7 @@ const NavigationBar = () => {
   const onUpdateActiveLink = (value) => setActiveLink(value);
 
   return (
-    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+    <Navbar expand="lg" className={`${scrolled ? "scrolled" : ""} sticky-top`} style={{ zIndex: 1000 }}>
       <Container>
         <Navbar.Brand href="#home">
           <img src={logo} alt="Logo" />
@@ -50,27 +48,18 @@ const NavigationBar = () => {
               Projects
             </Nav.Link>
           </Nav>
-                    <span className="navbar-text">
-                      <div className="social-icon">
-                        <a href="#"><img src={navIcon1} alt="Social Icon" /></a>
-                        {/* Add more icons as needed */}
-                      </div>
-                      <button className="vvd" onClick={() => console.log('Let’s Connect')}>
-                        <span>Let's Connect</span>
-                      </button>
-                      {/* Theme Toggle Button */}
-                      <button 
-                        onClick={toggleTheme} 
-                        className="theme-toggle" 
-                        style={{ marginLeft: '10px' }}
-                      >
-                          {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
-                      </button>
-                    </span>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
-            );
-          };
-          
-          export default NavigationBar;
+          <span className="navbar-text">
+            <div className="social-icon">
+              <a href="#"><img src={navIcon1} alt="Social Icon" /></a>
+            </div>
+            <button className="vvd" onClick={() => console.log('Let\'s Connect')}>
+              <span>Let's Connect</span>
+            </button>
+          </span>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default NavigationBar;

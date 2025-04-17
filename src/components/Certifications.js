@@ -21,19 +21,19 @@ export const Certifications = () => {
       <div className="container">
         <div className="certifications-box">
           <h2>Certifications</h2>
-          <p>Here are some of the certifications I've earned along my learning journey.</p>
+          <p>Here are some of the certifications I've earned/ am working on along my learning journey.</p>
           <Carousel responsive={responsive} infinite={true} className="certifications-slider">
             <div className="item">
               <img src={cert1} alt="Certification 1" />
-              <h5>Frontend Development - Meta</h5>
+              <h5>Product Management - Udemy</h5>
             </div>
             <div className="item">
               <img src={cert2} alt="Certification 2" />
-              <h5>React Specialization - Coursera</h5>
+              <h5>AI Product Management - Coursera</h5>
             </div>
             <div className="item">
               <img src={cert3} alt="Certification 3" />
-              <h5>UI/UX Design - Google</h5>
+              <h5>Mathematics of Machine Learning - Coursera</h5>
             </div>
           </Carousel>
         </div>

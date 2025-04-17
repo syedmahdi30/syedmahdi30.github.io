@@ -1,52 +1,53 @@
 // Projects.js
 import React from 'react';
-import { Container, Row, Col, Tab, Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import ProjectCard from './ProjectCard';
-const projImg1 = "https://source.unsplash.com/300x200/?code,website";
-const projImg2 = "https://source.unsplash.com/300x200/?design,app";
-const projImg3 = "https://source.unsplash.com/300x200/?uiux,development";
+
+const responsive = {
+  superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
+  tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
+};
 
 const projects = [
-  { title: "Project One", description: "Description for project one", imgUrl: projImg1 },
-  { title: "Project Two", description: "Description for project two", imgUrl: projImg2 },
-  { title: "Project Three", description: "Description for project three", imgUrl: projImg3 },
+  { 
+    title: "Project One", 
+    description: "A detailed description of project one. This project demonstrates my skills in web development and showcases innovative solutions to real-world problems.", 
+    imgUrl: "https://source.unsplash.com/300x200/?code,website",
+    projectUrl: "https://github.com/yourusername/project1"
+  },
+  { 
+    title: "Project Two", 
+    description: "Description for project two. This project highlights my expertise in UI/UX design and frontend development.", 
+    imgUrl: "https://source.unsplash.com/300x200/?design,app",
+    projectUrl: "https://github.com/yourusername/project2"
+  },
+  { 
+    title: "Project Three", 
+    description: "Description for project three. This project showcases my backend development skills and database management capabilities.", 
+    imgUrl: "https://source.unsplash.com/300x200/?uiux,development",
+    projectUrl: "https://github.com/yourusername/project3"
+  },
 ];
 
 export const Projects = () => {
   return (
     <section className="project" id="projects">
       <Container>
-        <h2>Projects</h2>
-        <Tab.Container id="projects-tabs" defaultActiveKey="first">
-          <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center">
-            <Nav.Item>
-              <Nav.Link eventKey="first">Tab One</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="second">Tab Two</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="third">Tab Three</Nav.Link>
-            </Nav.Item>
-          </Nav>
-          <Tab.Content>
-            <Tab.Pane eventKey="first">
-              <Row>
-                {projects.map((project, index) => (
-                  <Col key={index} sm={6} md={4}>
-                    <ProjectCard {...project} />
-                  </Col>
-                ))}
-              </Row>
-            </Tab.Pane>
-            <Tab.Pane eventKey="second">
-              {/* Additional content for Tab Two */}
-            </Tab.Pane>
-            <Tab.Pane eventKey="third">
-              {/* Additional content for Tab Three */}
-            </Tab.Pane>
-          </Tab.Content>
-        </Tab.Container>
+        <div className="project-box">
+          <h2>Projects</h2>
+          <p>Here are some of the projects I've worked on. Click on a card to see more details.</p>
+          <Carousel responsive={responsive} infinite={true} className="project-slider">
+            {projects.map((project, index) => (
+              <div key={index} className="item">
+                <ProjectCard {...project} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </Container>
     </section>
   );
