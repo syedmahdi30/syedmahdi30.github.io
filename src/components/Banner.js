@@ -19,9 +19,9 @@ const Banner = () => {
   const [text, setText] = useState('');
   const [currentHeadshotIndex, setCurrentHeadshotIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
-  const toRotate = ["Software Engineer", "Web Developer", "AI Engineer", "Data Analyst", "Project Manager"];
-  const period = 1000;
-  const [delta, setDelta] = useState(150 - Math.random() * 50);
+  const toRotate = ["Software Engineer", "Web Developer", "Machine Learning Engineer", "Data Analyst", "Project Manager"];
+  const period = 1000; // Increased to 1000ms for 1 second pause
+  const [delta, setDelta] = useState(50 - Math.random() * 20);
 
   useEffect(() => {
     let ticker = setInterval(() => tick(), delta);
@@ -60,13 +60,13 @@ const Banner = () => {
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setDelta(period);
+      setDelta(period); // This will pause for 1 second before starting to delete
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setDelta(500);
+      setDelta(50 - Math.random() * 20); // Reset to original typing speed
     } else {
-      setDelta(isDeleting ? delta / 2 : delta);
+      setDelta(isDeleting ? 50 : 50 - Math.random() * 20); // Keep consistent speed for both typing and deleting
     }
   };
 
@@ -106,6 +106,21 @@ const Banner = () => {
                 </div>
               </div>
               <div className="headshot-border"></div>
+            </div>
+            <div className="about-me-section">
+              <h3>About Me</h3>
+              <div className="interest-card">
+                <h4>Product Management</h4>
+                <p>Passionate about building user-centric products and leading cross-functional teams to deliver impactful solutions.</p>
+              </div>
+              <div className="interest-card">
+                <h4>Machine Learning</h4>
+                <p>Fascinated by AI/ML applications, from NLP to computer vision, and their potential to solve real-world problems.</p>
+              </div>
+              <div className="interest-card">
+                <h4>Full Stack Development</h4>
+                <p>Skilled in building scalable web applications using modern frameworks and best practices.</p>
+              </div>
             </div>
           </Col>
         </Row>

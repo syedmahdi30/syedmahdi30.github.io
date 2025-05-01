@@ -433,31 +433,98 @@ button:hover {
 /* === Carousel Customization === */
 .carousel-container {
   padding: 20px 0;
+  position: relative;
+  overflow: hidden;
+  margin: 0 -15px;
 }
 
-.custom-dot-list-style {
-  margin-top: 20px;
+.project-slider {
+  position: relative;
+  padding: 0 15px;
 }
 
-.custom-dot-list-style button {
-  background: #6f42c1;
-  border: none;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 5px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.project-slider .item {
+  padding: 0 15px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.custom-dot-list-style button:hover {
-  background: #e83e8c;
-  transform: scale(1.2);
+.project-slider .item:hover {
+  transform: scale(1.02);
 }
 
 .carousel-item-padding-40-px {
   padding: 0 20px;
+}
+
+.custom-dot-list-style {
+  position: absolute;
+  bottom: -30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.custom-dot-list-style li {
+  margin: 0 5px;
+}
+
+.custom-dot-list-style li button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(111, 66, 193, 0.3);
+  transition: all 0.3s ease;
+}
+
+.custom-dot-list-style li button:hover {
+  background-color: rgba(111, 66, 193, 0.6);
+}
+
+.custom-dot-list-style li.react-multi-carousel-dot--active button {
+  background-color: #6f42c1;
+  transform: scale(1.2);
+}
+
+/* Add a subtle gradient overlay to indicate more content */
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(24, 24, 32, 1), rgba(24, 24, 32, 0));
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(24, 24, 32, 1), rgba(24, 24, 32, 0));
+}
+
+/* Add animation for the sliding effect */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.project-slider .react-multi-carousel-item {
+  animation: slideIn 0.5s ease-out;
 }
 
 /* === Responsive Adjustments === */
@@ -614,5 +681,157 @@ button:hover {
 
   .contact-details p {
     justify-content: center;
+  }
+}
+
+.project-details {
+  margin: 20px 0;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.detail-item {
+  margin: 10px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #b8b8b8;
+  display: flex;
+  align-items: flex-start;
+}
+
+.detail-item::before {
+  content: "•";
+  margin-right: 10px;
+  color: #6f42c1;
+  font-size: 1.2rem;
+}
+
+.project-box {
+  background: rgba(24, 24, 32, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  transition: 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(111, 66, 193, 0.3);
+}
+
+.project-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.project-info p {
+  color: #b8b8b8;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.project-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.about-me-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(24, 24, 32, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(111, 66, 193, 0.2);
+}
+
+.about-me-section h3 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.about-me-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #6f42c1, #e83e8c);
+  border-radius: 3px;
+}
+
+.interest-card {
+  background: rgba(111, 66, 193, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(111, 66, 193, 0.2);
+}
+
+.interest-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(111, 66, 193, 0.3);
+  border-color: rgba(111, 66, 193, 0.4);
+}
+
+.interest-card h4 {
+  color: #6f42c1;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.interest-card h4::before {
+  content: '•';
+  margin-right: 10px;
+  color: #e83e8c;
+}
+
+.interest-card p {
+  color: #b8b8b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about-me-section {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .about-me-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .interest-card {
+    padding: 12px;
+  }
+
+  .interest-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .interest-card p {
+    font-size: 0.85rem;
   }
 }
