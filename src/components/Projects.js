@@ -63,18 +63,31 @@ const projects = [
       "🔁 Trained Model via Custom SGD and tuned learning rates (best: 0.5) to minimize validation loss (as low as 9.73e-11), demonstrating successful optimization on a small labeled dataset.",
       "📈 Evaluated Classifier on Test Set, achieving: Precision: 0.10, Recall: 1.00, Accuracy: 0.10, F1 Score: 0.18, and visualized results with a confusion matrix to assess model generalization."
     ]
+  },
+  {
+    title: "Natural Language Processing Simplified",
+    description: "Introduction to NLP",
+    imgUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
+    projectUrl: "https://medium.com/@humansforai/natural-language-processing-simplified-49a7fe6c4dff",
+    details: [
+      "📝 Explains what NLP is and how it bridges the gap between human language and computers, enabling machines to understand and generate text.",
+      "🔤 Describes the core building blocks of NLP, including tokenization, part-of-speech tagging, parsing, and the use of neural networks.",
+      "📚 Traces the history of NLP from rule-based systems to modern deep learning and large language models like GPT and BERT.",
+      "🌍 Highlights real-world applications such as chatbots, sentiment analysis, document processing, and healthcare data analysis.",
+      "⚖️ Discusses ethical concerns in NLP, including bias, fairness, privacy, and the importance of transparency and accountability."
+    ]
   }
 ];
 
 export const Projects = () => {
   return (
-    <section className="project" id="projects">
+    <section className="project" id="projects" data-aos="fade-up">
       <Container>
         <Row>
           <Col size={12}>
             <div className="animate__animated animate__fadeIn">
-              <h2>Projects</h2>
-              <p>Here are some of my recent projects that showcase my skills and experience.</p>
+              <h2>Projects & Articles</h2>
+              <p>Here are some of my recent projects and articles that showcase my skills and experience.</p>
               <Carousel 
                 responsive={responsive} 
                 infinite={true} 
@@ -109,7 +122,7 @@ export const Projects = () => {
                             </div>
                           )}
                           <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
-                            <button>View Project</button>
+                            <button>{project.title === "Natural Language Processing Simplified" ? "Read Article" : "View Project"}</button>
                           </a>
                         </div>
                       </div>

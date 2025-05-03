@@ -26,32 +26,29 @@ const NavigationBar = () => {
   return (
     <Navbar expand="lg" className={`${scrolled ? "scrolled" : ""} sticky-top`} style={{ zIndex: 1000 }}>
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand style={{ cursor: 'pointer' }} onClick={() => { onUpdateActiveLink('home'); scrollToSection('home'); }}>
           <img src={logo} alt="Logo" className="navbar-logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto navbar" data-aos="fade-in">
             <Nav.Link 
-              href="#home" 
               className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('home')}
+              onClick={() => { onUpdateActiveLink('home'); scrollToSection('home'); }}
             >
               Home
             </Nav.Link>
             <Nav.Link 
-              href="#certifications" 
-              className={activeLink === 'certifications' ? 'active navbar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('certifications')}
+              className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'}
+              onClick={() => { onUpdateActiveLink('experience'); scrollToSection('experience'); }}
             >
-              Certifications
+              Experience
             </Nav.Link>
             <Nav.Link 
-              href="#projects" 
               className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('projects')}
+              onClick={() => { onUpdateActiveLink('projects'); scrollToSection('projects'); }}
             >
               Projects
             </Nav.Link>
@@ -68,9 +65,6 @@ const NavigationBar = () => {
                 <Envelope size={25} />
               </a>
             </div>
-            <button className="vvd" onClick={() => scrollToSection('connect')}>
-              <span>Let's Connect</span>
-            </button>
           </span>
         </Navbar.Collapse>
       </Container>

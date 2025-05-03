@@ -2,9 +2,9 @@
 import React, { useEffect} from 'react';
 import NavigationBar from './components/NavigationBar';
 import Banner from './components/Banner';
-import { Certifications } from './components/Certifications';
-import { Projects } from './components/Projects';
-import { ContactForm } from './components/ContactForm';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -19,9 +19,9 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Banner />
-      <Certifications />
+      <Experience />
       <Projects />
-      <ContactForm />
+      <Contact />
       <Footer />
     </div>
   );

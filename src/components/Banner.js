@@ -10,7 +10,7 @@ const headshots = [
   "/images/headshot.jpg",
   "/images/headshot2.jpg",
   "/images/headshot3.jpg",
-  "/images/headshot4.jpg"
+  "/images/headshot4.jpg",
 ];
 
 const Banner = () => {
@@ -78,7 +78,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="banner" id="home">
+    <section className="banner" id="home" data-aos="fade-up">
       <Container>
         <Row className="align-items-center">
           <Col xs={12} md={7}>
@@ -111,15 +111,15 @@ const Banner = () => {
               <h3>About Me</h3>
               <div className="interest-card">
                 <h4>Product Management</h4>
-                <p>Passionate about building user-centric products and leading cross-functional teams to deliver impactful solutions.</p>
+                <p>Interested in building user-focused products and collaborating with cross-functional teams to deliver meaningful solutions. Passionate about product strategy, problem-solving, and driving impact through iteration.</p>
               </div>
               <div className="interest-card">
                 <h4>Machine Learning</h4>
-                <p>Fascinated by AI/ML applications, from NLP to computer vision, and their potential to solve real-world problems.</p>
+                <p>Fascinated by the potential of AI/ML to solve real-world challenges—particularly in NLP and computer vision. Continuously learning and applying core ML concepts to projects and research.</p>
               </div>
               <div className="interest-card">
                 <h4>Full Stack Development</h4>
-                <p>Skilled in building scalable web applications using modern frameworks and best practices.</p>
+                <p>Enjoy developing scalable, intuitive web applications using modern technologies. Comfortable working across the stack and eager to refine both front-end and back-end skills.</p>
               </div>
             </div>
           </Col>
