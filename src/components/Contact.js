@@ -16,7 +16,7 @@ const Contact = () => {
     setStatus({ success: false, message: 'Sending...' });
 
     try {
-      const apiBase = process.env.REACT_APP_API_URL || '';
+      const apiBase = 'https://syed-personal-portfolia.onrender.com';
       const response = await fetch(`${apiBase}/api/contact`, {
         method: 'POST',
         headers: {
