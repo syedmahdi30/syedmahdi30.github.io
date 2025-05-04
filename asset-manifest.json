@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/syedmahdi30.github.io/static/css/main.00309637.css",
-    "main.js": "/syedmahdi30.github.io/static/js/main.bc620bb3.js",
-    "static/js/453.b21437c2.chunk.js": "/syedmahdi30.github.io/static/js/453.b21437c2.chunk.js",
-    "static/media/revicons.eot": "/syedmahdi30.github.io/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/syedmahdi30.github.io/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/syedmahdi30.github.io/static/media/revicons.e8746a624ed098489406.woff",
-    "index.html": "/syedmahdi30.github.io/index.html",
-    "main.00309637.css.map": "/syedmahdi30.github.io/static/css/main.00309637.css.map",
-    "main.bc620bb3.js.map": "/syedmahdi30.github.io/static/js/main.bc620bb3.js.map",
-    "453.b21437c2.chunk.js.map": "/syedmahdi30.github.io/static/js/453.b21437c2.chunk.js.map"
+    "main.css": "/static/css/main.ae102628.css",
+    "main.js": "/static/js/main.c3a8a849.js",
+    "static/js/453.b21437c2.chunk.js": "/static/js/453.b21437c2.chunk.js",
+    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/index.html",
+    "main.ae102628.css.map": "/static/css/main.ae102628.css.map",
+    "main.c3a8a849.js.map": "/static/js/main.c3a8a849.js.map",
+    "453.b21437c2.chunk.js.map": "/static/js/453.b21437c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.00309637.css",
-    "static/js/main.bc620bb3.js"
+    "static/css/main.ae102628.css",
+    "static/js/main.c3a8a849.js"
   ]
 }
