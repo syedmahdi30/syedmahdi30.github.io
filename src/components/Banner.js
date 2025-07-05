@@ -11,6 +11,9 @@ const headshots = [
   "/images/headshot2.jpg",
   "/images/headshot3.jpg",
   "/images/headshot4.jpg",
+  "/images/headshot6.jpg",
+  "/images/headshot7.jpg",
+  "/images/headshot8.jpg",
 ];
 
 const Banner = () => {
@@ -19,7 +22,7 @@ const Banner = () => {
   const [text, setText] = useState('');
   const [currentHeadshotIndex, setCurrentHeadshotIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
-  const toRotate = ["Software Engineer", "Web Developer", "Machine Learning Engineer", "Data Analyst", "Project Manager"];
+  const toRotate = ["Software Engineer", "Machine Learning Engineer", "Data Analyst", "Project Manager"];
   const period = 1000; // Increased to 1000ms for 1 second pause
   const [delta, setDelta] = useState(50 - Math.random() * 20);
 
@@ -87,7 +90,7 @@ const Banner = () => {
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>{`Hi! I'm an Aspiring `}<span className="wrap">{text}</span></h1>
-                  <p>Hi, I'm Syed Islam — a 4th-year Computer Science + Business Applications student at UCR and soon-to-be AI/ML Master's student at UT Austin, where I'll be diving deep into the future of intelligent systems.</p>
+                  <p>Hi, I'm Syed Islam — a Computer Science + Business Applications Graduate from UCR and AI/ML Master's student at UT Austin, where I'll be diving deep into the future of intelligent systems.</p>
                   <button onClick={() => scrollToSection('connect')}>
                     Let's Connect <ArrowRightCircle size={25} />
                   </button>

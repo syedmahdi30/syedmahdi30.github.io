@@ -59,16 +59,13 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Kitchen Manager — Chick-fil-A",
-      period: "Mar, 2022 – Mar, 2024",
-      logo: "/images/chickfila.png",
+      title: "Software Engineer Intern — Carboncopies Foundation",
+      period: "June 2025 – Present",
+      logo: "/images/carboncopies.jpg",
       responsibilities: [
-        "Supervised and coordinated a team of 20+ kitchen staff, ensuring efficient operations and adherence to food safety standards",
-        "Conducted training sessions to onboard new team members and promote continuous skill development",
-        "Motivated and mentored kitchen staff, providing guidance and feedback to enhance performance",
-        "Managed inventory levels, placed orders with vendors, and monitored food costs to control expenses",
-        "Implemented process improvements to streamline kitchen workflows, resulting in 16% increased productivity",
-        "Ensured compliance with health codes, safety regulations, and Chick-fil-A's operational standards"
+        "Unified front-end scripts into a standardized Python client, integrating capabilities from BGI API.py via init .py while ensuring continued functionality of existing scripts",
+        "Implemented user-password authentication and role-based privilege levels (\"contributor\" and \"admin\") for API server connections, enabling secure CLI-based access and user administration",
+        "Migrated API server from Restbed to Oat++ library for improved communication with front-end Python scripts, ensuring seamless integration and removing deprecated references"
       ]
     },
     {
@@ -105,7 +102,20 @@ const Experience = () => {
         "Taught AI literacy to university and K-12 students, providing accessible and engaging learning opportunities",
         "Encouraged and guided students to branch out into the AI space through organized events and resources"
       ]
-    }
+    },
+    {
+      title: "Kitchen Manager — Chick-fil-A",
+      period: "Mar, 2022 – Mar, 2024",
+      logo: "/images/chickfila.png",
+      responsibilities: [
+        "Supervised and coordinated a team of 20+ kitchen staff, ensuring efficient operations and adherence to food safety standards",
+        "Conducted training sessions to onboard new team members and promote continuous skill development",
+        "Motivated and mentored kitchen staff, providing guidance and feedback to enhance performance",
+        "Managed inventory levels, placed orders with vendors, and monitored food costs to control expenses",
+        "Implemented process improvements to streamline kitchen workflows, resulting in 16% increased productivity",
+        "Ensured compliance with health codes, safety regulations, and Chick-fil-A's operational standards"
+      ]
+    },
   ];
 
   const certifications = [
