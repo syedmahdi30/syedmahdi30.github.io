@@ -11,9 +11,11 @@ const headshots = [
   "/images/headshot2.jpg",
   "/images/headshot3.jpg",
   "/images/headshot4.jpg",
+  "/images/headshot5.jpg",
   "/images/headshot6.jpg",
   "/images/headshot7.jpg",
   "/images/headshot8.jpg",
+  "/images/headshot9.jpg",
 ];
 
 const Banner = () => {
