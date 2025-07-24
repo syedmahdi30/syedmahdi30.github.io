@@ -76,8 +76,26 @@ const projects = [
       "🌍 Highlights real-world applications such as chatbots, sentiment analysis, document processing, and healthcare data analysis.",
       "⚖️ Discusses ethical concerns in NLP, including bias, fairness, privacy, and the importance of transparency and accountability."
     ]
+  },
+  {
+    title: "AI Can Learn From Their Dreams: World Models",
+    description: "Introduction to the concept of World Models",
+    imgUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fsmartlabai.medium.com%2Fworld-models-a-reinforcement-learning-story-cdcc86093c5&psig=AOvVaw3iebeKwOCAFV75rFrJ3qi4&ust=1753409171508000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCMC6x6m01I4DFQAAAAAdAAAAABAE",
+    projectUrl: "https://medium.com/@humansforai/ai-can-learn-from-their-dreams-world-models-3018fb21602b",
+    details: [
+      "🧠 Explains how both humans and AI build 'world models'—internal representations of reality used to understand and predict their environment.",
+      "🚗 Describes how deep learning agents use simulated environments (like car racing games) to learn about the world through experience.",
+      "🌀 Introduces Variational Autoencoders (VAE) for compressing complex images into essential vector representations, making learning more efficient.",
+      "🔄 Details the use of Recurrent Neural Networks (RNNs) and Mixture Density Networks (MDNs) to predict future events and enable planning.",
+      "🎮 Highlights the VizDoom experiment, where AI agents trained in dream-like simulations successfully transferred skills to real-world scenarios.",
+      "⚡ Emphasizes the efficiency and versatility of World Models, which reduce computational requirements and can be applied to diverse tasks.",
+      "🧩 Outlines the modular architecture: VAE for perception, MDN-RNN for prediction, and a simple controller for decision-making.",
+      "🧐 Discusses challenges such as memory limitations and the risk of agents exploiting flaws in simulated environments.",
+      "🌍 Explores the broader impact of World Models on AI development, democratization of training, and philosophical questions about intelligence and learning."
+    ]
   }
 ];
+
 
 export const Projects = () => {
   return (
