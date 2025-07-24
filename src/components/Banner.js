@@ -9,10 +9,10 @@ import 'animate.css';
 const headshots = [
   "/images/headshot.jpg",
   "/images/headshot2.jpg",
-  "/images/headshot3.jpg",
+  "/images/headshot3.JPG",
   "/images/headshot4.jpg",
-  "/images/headshot5.jpg",
-  "/images/headshot6.jpg",
+  "/images/headshot5.JPG",
+  "/images/headshot6.JPG",
   "/images/headshot7.jpg",
   "/images/headshot8.jpg",
   "/images/headshot9.jpg",
