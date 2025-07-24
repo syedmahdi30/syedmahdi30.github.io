@@ -1,5 +1,5 @@
 // Banner.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
@@ -22,14 +22,35 @@ const Banner = () => {
   const [text, setText] = useState('');
   const [currentHeadshotIndex, setCurrentHeadshotIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
-  const toRotate = ["Software Engineer", "Machine Learning Engineer", "Data Analyst", "Project Manager"];
   const period = 1000; // Increased to 1000ms for 1 second pause
   const [delta, setDelta] = useState(50 - Math.random() * 20);
+
+  const tick = useCallback(() => {
+    const toRotate = ["Software Engineer", "Machine Learning Engineer", "Data Analyst", "Project Manager"];
+    let i = loopNum % toRotate.length;
+    let fullText = toRotate[i];
+    let updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
+
+    setText(updatedText);
+
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setDelta(period); // This will pause for 1 second before starting to delete
+    } else if (isDeleting && updatedText === '') {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setDelta(50 - Math.random() * 20); // Reset to original typing speed
+    } else {
+      setDelta(isDeleting ? 50 : 50 - Math.random() * 20); // Keep consistent speed for both typing and deleting
+    }
+  }, [loopNum, isDeleting, text, period]);
 
   useEffect(() => {
     let ticker = setInterval(() => tick(), delta);
     return () => clearInterval(ticker);
-  }, [text]);
+  }, [tick, delta]);
 
   // Headshot rotation effect
   useEffect(() => {
@@ -51,27 +72,6 @@ const Banner = () => {
 
     return () => clearInterval(headshotInterval);
   }, []);
-
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period); // This will pause for 1 second before starting to delete
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setDelta(50 - Math.random() * 20); // Reset to original typing speed
-    } else {
-      setDelta(isDeleting ? 50 : 50 - Math.random() * 20); // Keep consistent speed for both typing and deleting
-    }
-  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
