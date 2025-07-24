@@ -76,11 +76,11 @@ const Experience = () => {
       period: "Sep, 2023 – Jun, 2025",
       logo: "/images/acm-ucr.png",
       responsibilities: [
-        "Developed visually appealing UI components for multiple student organizations using React",
-        "Optimized UI displays across devices for improved responsiveness",
-        "Leveraged Tailwind CSS utility classes to build and style reusable UI components",
-        "Leveraged Next.js to build and statically deploy a high-performance website, optimizing for faster load times and better user experience",
-        "Established a Continuous Integration pipeline via GitHub Actions to automatically build, test, and validate code changes"
+        "Developed visually appealing UI components for multiple student organizations using React.",
+        "Optimized UI displays across devices for improved responsiveness.",
+        "Leveraged Tailwind CSS utility classes to build and style reusable UI components.",
+        "Leveraged Next.js to build and statically deploy a high-performance website, optimizing for faster load times and better user experience.",
+        "Established a Continuous Integration pipeline via GitHub Actions to automatically build, test, and validate code changes."
       ]
     },
     {
