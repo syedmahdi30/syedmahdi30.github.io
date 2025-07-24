@@ -63,12 +63,12 @@ const Experience = () => {
       period: "June 2025 – Present",
       logo: "/images/carboncopies.jpg",
       responsibilities: [
-        "Unified diverse front-end scripts into a standardized Python client, ensuring backward compatibility and comprehensive documentation for new integrations",
-        "Engineered robust user-password authentication with role-based privilege levels (contributor/admin) for API server connections, enabling secure CLI-based access and integrated user administration",
-        "Spearheaded migration of API server from Restbed to Oat++ library, significantly improving communication efficiency with front-end Python scripts",
-        "Developed and integrated virtualized optogenetic stimulation into a neuroscience simulation platform, enabling precise control and activation of genetically modified neurons",
-        "Designed and implemented a new API for exporting detailed connectome data, including neuron types, 3D locations, and specific synapse details, significantly boosting researcher accessibility",
-        "Conducted a comprehensive feasibility study for GPU rendering, delivering a functional SYCL-based C++ implementation for parallel 3D voxel-to-2D image transformation, and providing critical documentation for future platform-wide GPU integration"
+        "Unified diverse front-end scripts into a standardized Python client, ensuring backward compatibility and comprehensive documentation for new integrations.",
+        "Engineered robust user-password authentication with role-based privilege levels (contributor/admin) for API server connections, enabling secure CLI-based access and integrated user administration.",
+        "Spearheaded migration of API server from Restbed to Oat++ library, significantly improving communication efficiency with front-end Python scripts.",
+        "Developed and integrated virtualized optogenetic stimulation into a neuroscience simulation platform, enabling precise control and activation of genetically modified neurons.",
+        "Designed and implemented a new API for exporting detailed connectome data, including neuron types, 3D locations, and specific synapse details, significantly boosting researcher accessibility.",
+        "Conducted a comprehensive feasibility study for GPU rendering, delivering a functional SYCL-based C++ implementation for parallel 3D voxel-to-2D image transformation, and providing critical documentation for future platform-wide GPU integration."
       ]
     },
     {
