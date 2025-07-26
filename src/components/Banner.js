@@ -75,11 +75,8 @@ const Banner = () => {
     return () => clearInterval(headshotInterval);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openLinkedIn = () => {
+    window.open('https://www.linkedin.com/in/syed-islam-7580401b0/', '_blank');
   };
 
   return (
@@ -93,7 +90,7 @@ const Banner = () => {
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>{`Hi! I'm an Aspiring `}<span className="wrap">{text}</span></h1>
                   <p>Hi, I'm Syed Islam — a Computer Science + Business Applications Graduate from UCR and AI/ML Master's student at UT Austin, where I'll be diving deep into the future of intelligent systems.</p>
-                  <button onClick={() => scrollToSection('connect')}>
+                  <button onClick={openLinkedIn}>
                     Let's Connect <ArrowRightCircle size={25} />
                   </button>
                 </div>
