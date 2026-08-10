@@ -475,7 +475,7 @@ Expected: push succeeds and triggers `.github/workflows/react-gh-pages.yml`.
 
 - [ ] **Step 2: Monitor the deployment workflow**
 
-Use the public GitHub Actions API for `syedmahdi30/personal-portfolio` to identify the workflow run associated with the pushed commit. Poll until it reaches `completed`.
+Use the public GitHub Actions API for `syedmahdi30/syedmahdi30.github.io` to identify the workflow run associated with the pushed commit. Poll until it reaches `completed`.
 
 Expected: `status=completed` and `conclusion=success`.
 
