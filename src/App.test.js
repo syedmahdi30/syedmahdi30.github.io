@@ -49,6 +49,11 @@ test("renders the healthcare RAG benchmark as additional work", () => {
     )
   ).toBeInTheDocument();
   expect(
+    within(additionalWork).getByText(
+      /co-developed with a three-person project team/i
+    )
+  ).toBeInTheDocument();
+  expect(
     within(additionalWork).getByRole("link", { name: /read paper/i })
   ).toHaveAttribute(
     "href",

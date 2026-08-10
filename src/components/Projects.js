@@ -63,6 +63,7 @@ const AdditionalProject = ({ project }) => (
       </div>
       <h4>{project.title}</h4>
       <p className="project-outcome">{project.oneLineOutcome}</p>
+      <p className="additional-project-team">Co-developed with a {project.team}</p>
       <p className="additional-project-evidence">
         <span>Evidence</span> {project.metrics.join(" · ")}
       </p>
