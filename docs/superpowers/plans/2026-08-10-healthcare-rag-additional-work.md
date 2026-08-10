@@ -422,15 +422,15 @@ git add src/App.css
 git commit -m "Style the additional work project entry"
 ```
 
-### Task 3: Deploy and verify the public site
+### Task 3: Confirm release readiness
 
 **Files:**
 - Read: `.github/workflows/react-gh-pages.yml`
 - Read: `package.json`
 
 **Interfaces:**
-- Consumes: the tested `master` branch commits from Tasks 1 and 2
-- Produces: a GitHub Pages release at `https://syedmahdi30.github.io` containing the Additional Work entry and both artifact links
+- Consumes: the isolated feature-branch commits from Tasks 1 and 2
+- Produces: a clean, fully verified feature branch ready for whole-branch review and integration into `master`
 
 - [ ] **Step 1: Confirm the release diff and repository state**
 
@@ -438,15 +438,34 @@ Run:
 
 ```bash
 git status --short
-git log -3 --oneline
-git diff HEAD~2..HEAD --check
+git log -5 --oneline
+git diff 0badf22..HEAD --check
 ```
 
-Expected: only known user-owned untracked files remain; the healthcare PDF is tracked; both implementation commits are present; the diff check is clean.
+Expected: the worktree is clean; the healthcare PDF is tracked; all implementation and fix commits are present; the complete feature diff is clean.
 
-- [ ] **Step 2: Push the tested branch**
+- [ ] **Step 2: Re-run the complete release verification**
 
 Run:
+
+```bash
+npm test -- --watchAll=false --runInBand
+npm run build
+```
+
+Expected: all six tests pass and the optimized production build completes successfully.
+
+- [ ] **Step 3: Record the release-readiness evidence**
+
+Write the exact status, commit range, test count, build result, and remaining concerns to the Task 3 report. Do not push or merge from the isolated worktree.
+
+Expected: `DONE` with no unresolved correctness, accessibility, responsive-layout, artifact-link, or claim-integrity concern.
+
+## Post-review release
+
+After the SDD whole-branch review is clean, use `superpowers:finishing-a-development-branch` to integrate the reviewed feature branch into `master`. Then:
+
+- [ ] **Step 1: Push the reviewed `master` branch**
 
 ```bash
 git push origin master
@@ -454,13 +473,13 @@ git push origin master
 
 Expected: push succeeds and triggers `.github/workflows/react-gh-pages.yml`.
 
-- [ ] **Step 3: Monitor the deployment workflow**
+- [ ] **Step 2: Monitor the deployment workflow**
 
 Use the public GitHub Actions API for `syedmahdi30/personal-portfolio` to identify the workflow run associated with the pushed commit. Poll until it reaches `completed`.
 
 Expected: `status=completed` and `conclusion=success`.
 
-- [ ] **Step 4: Verify the live release**
+- [ ] **Step 3: Verify the live release**
 
 Fetch `https://syedmahdi30.github.io` without cache and verify the deployed bundle contains:
 
@@ -472,6 +491,6 @@ Fetch `https://syedmahdi30.github.io` without cache and verify the deployed bund
 
 Open both links from the live page. Expected: the paper returns HTTP 200 and the Colab URL resolves to the shared notebook.
 
-- [ ] **Step 5: Record completion evidence**
+- [ ] **Step 4: Record completion evidence**
 
 Report the implementation commit IDs, test/build results, successful workflow run URL, live portfolio URL, and the exact credibility guardrail used in visible copy.
