@@ -198,8 +198,89 @@ export const projects = [
       description: "An honest benchmark of naive and tree models for next-day realized-volatility forecasting.",
     },
   },
+  {
+    slug: "medical-terminology-rag-benchmark",
+    title: "Bilingual medical terminology RAG benchmark",
+    shortTitle: "Medical terminology RAG benchmark",
+    oneLineOutcome:
+      "Co-developed a local RAG prototype that indexed 8,971 Chinese-English medical terms and compared five Ollama-served models through a reproducible retrieval and evaluation workflow.",
+    categories: ["RAG", "LLM evaluation", "Healthcare NLP"],
+    status: "Completed",
+    dates: { start: "2026", end: "2026", label: "2026" },
+    role: "Research engineer and co-author",
+    team: "Three-person project team",
+    featured: false,
+    featuredOrder: null,
+    claimState: "Verified against the supplied paper and Colab notebook",
+    problem:
+      "Explore whether local language models can use standardized bilingual terminology retrieval to answer Traditional Chinese Medicine terminology questions more consistently.",
+    constraints: [
+      "Public terminology data and a fixed Colab runtime",
+      "Locally served open models through Ollama",
+      "Four-prompt exploratory evaluation without clinician review",
+    ],
+    systemSummary:
+      "A multilingual sentence encoder maps cleaned terminology into a FAISS index; retrieved bilingual context grounds locally served Ollama models, with Gradio for interaction and a small term-overlap benchmark for comparison.",
+    architecture: [
+      "Pandas cleaning over 8,971 bilingual terminology records",
+      "384-dimensional MiniLM embeddings and FAISS IndexFlatL2 retrieval",
+      "Five Ollama-served generators with a Gradio interface",
+    ],
+    contributions: [
+      "Co-developed data preparation, embedding, and FAISS retrieval workflows.",
+      "Integrated Ollama model comparison and the Gradio interface.",
+      "Contributed to evaluation design, analysis, and manuscript writing.",
+    ],
+    decisions: [
+      "Use one deterministic retrieval pipeline so each generator receives the same context.",
+      "Label the four-prompt benchmark exploratory rather than generalizing model rankings.",
+    ],
+    evaluation: [
+      "Term- and keyword-overlap precision, recall, and F1 across four curated prompts",
+      "Retrieved-term inspection and similarity-score visualization",
+    ],
+    metrics: [
+      "8,971 terms · 384-dimensional embeddings · 5 local models · 4-query exploratory evaluation",
+    ],
+    results: [
+      "Produced a reproducible local workflow for comparing retrieval-grounded responses across five open models.",
+    ],
+    limitations: [
+      "Four prompts and keyword-based scoring do not establish general model superiority.",
+      "No clinician review or real-world clinical validation was performed.",
+    ],
+    technologies: [
+      "Python",
+      "Pandas",
+      "Sentence Transformers",
+      "FAISS",
+      "Ollama",
+      "Gradio",
+    ],
+    artifacts: [
+      {
+        label: "Read paper",
+        href: "/docs/AI_in_Healthcare___High_Risk_Project___Ludolf_J___Santupur_S_______Islam_S_-2.pdf",
+        type: "paper",
+      },
+      {
+        label: "Open Colab",
+        href: "https://colab.research.google.com/drive/1Ph4nrJbk3Lz8DiFKpPYKiSMPfrF5mb1W?usp=sharing",
+        type: "source",
+      },
+    ],
+    trace:
+      "TCM terminology → multilingual embeddings → FAISS retrieval → Ollama generation → Gradio + evaluation",
+    seo: {
+      title: "Bilingual medical terminology RAG benchmark — Syed Islam",
+      description:
+        "A local RAG prototype and exploratory five-model benchmark over 8,971 Chinese-English medical terms.",
+    },
+  },
 ];
 
 export const featuredProjects = projects
   .filter((project) => project.featured)
   .sort((a, b) => a.featuredOrder - b.featuredOrder);
+
+export const additionalProjects = projects.filter((project) => !project.featured);

@@ -17,13 +17,49 @@ test("renders the three flagship projects in priority order", () => {
   render(<App />);
 
   const work = screen.getByRole("region", { name: /selected work/i });
-  const headings = within(work).getAllByRole("heading", { level: 3 });
+  const flagshipProjects = within(work).getByRole("list", {
+    name: /flagship projects/i,
+  });
+  const headings = within(flagshipProjects).getAllByRole("heading", { level: 3 });
 
   expect(headings.map((heading) => heading.textContent)).toEqual([
     "Carboncopies: Auth-aware RAG infrastructure",
     "Algoverse: Multimodal emotion interpretability",
     "Volatility forecasting: Short-horizon benchmarking",
   ]);
+});
+
+test("renders the healthcare RAG benchmark as additional work", () => {
+  render(<App />);
+
+  const work = screen.getByRole("region", { name: /selected work/i });
+  const additionalWork = within(work).getByRole("region", {
+    name: /additional work/i,
+  });
+
+  expect(
+    within(additionalWork).getByRole("heading", {
+      level: 4,
+      name: /bilingual medical terminology rag benchmark/i,
+    })
+  ).toBeInTheDocument();
+  expect(
+    within(additionalWork).getByText(
+      /8,971 terms · 384-dimensional embeddings · 5 local models · 4-query exploratory evaluation/i
+    )
+  ).toBeInTheDocument();
+  expect(
+    within(additionalWork).getByRole("link", { name: /read paper/i })
+  ).toHaveAttribute(
+    "href",
+    "/docs/AI_in_Healthcare___High_Risk_Project___Ludolf_J___Santupur_S_______Islam_S_-2.pdf"
+  );
+  expect(
+    within(additionalWork).getByRole("link", { name: /open colab/i })
+  ).toHaveAttribute(
+    "href",
+    "https://colab.research.google.com/drive/1Ph4nrJbk3Lz8DiFKpPYKiSMPfrF5mb1W?usp=sharing"
+  );
 });
 
 test("states the volatility benchmark result without overstating performance", () => {
