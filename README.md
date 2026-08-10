@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Syed Islam — ML Systems Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Recruiter-focused portfolio for Syed Islam's work across LLM infrastructure, multimodal interpretability, applied machine learning, and production software.
 
-## Available Scripts
+- Live site: https://syedmahdi30.github.io/
+- Design and content authority: [design.md](design.md)
 
-In the project directory, you can run:
+## Architecture
 
-### `npm start`
+The site is a statically deployed, single-page React application built with React 19 and Create React App 5. It has no runtime backend, router, CMS, or contact API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `src/content/projectsData.js` contains normalized project content.
+- `src/components/` contains semantic homepage sections.
+- `src/App.css` and `src/index.css` contain the tokenized visual system and responsive rules.
+- `public/docs/` contains the resume and project papers linked from the site.
+- `.github/workflows/react-gh-pages.yml` builds and deploys `build/` to GitHub Pages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Local development
 
-### `npm test`
+```bash
+npm ci
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The development server runs at `http://localhost:3000`.
 
-### `npm run build`
+## Verification
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+CI=true npm test -- --watchAll=false --runInBand
+npm run build
+git diff --check
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The test suite covers the ML-systems positioning, flagship project order, healthcare additional-work entry, volatility-result wording, resume and email conversion paths, and the keyboard skip link.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Maintaining content
 
-### `npm run eject`
+Treat `design.md` as the source of truth for visible copy, claims, hierarchy, accessibility, responsive behavior, and artifact policy.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Keep Carboncopies, Algoverse, and volatility forecasting as the three flagship projects in that order.
+- Keep supporting projects under `Additional work` with `featured: false`.
+- Add or update project content in `src/content/projectsData.js`; do not create placeholder artifact links.
+- Publish only evidence-backed claims. Algoverse results remain provisional until evaluation is frozen.
+- Describe the medical terminology benchmark as a four-query exploratory evaluation, not clinical validation or statistically robust model superiority.
+- Keep the contact path as `mailto:` and the resume as a static file under `public/docs/`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Relevant specifications and plans live under `docs/superpowers/`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The canonical repository is `syedmahdi30/syedmahdi30.github.io`. Pushes to `master` or `main` trigger `.github/workflows/react-gh-pages.yml`, which installs dependencies with `npm ci`, builds the application, and deploys the `build/` artifact to GitHub Pages.
 
-## Learn More
+Before releasing:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Run the complete verification commands above.
+2. Confirm the diff contains only intended files and preserves user-owned untracked artifacts.
+3. Confirm every newly added local document exists under `public/docs/` and every external artifact URL resolves.
+4. After pushing, confirm the workflow completed successfully for the intended commit.
+5. Verify the live bundle contains the expected copy and that its document, resume, and source links resolve.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Scope boundaries
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The current release intentionally has no case-study routes, custom contact backend, CMS, carousel, analytics dependency, or provisional research-result claims. A framework migration or route-based case-study system should be designed as a separate project.
