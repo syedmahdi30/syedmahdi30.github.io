@@ -50,7 +50,7 @@ test("renders the healthcare RAG benchmark as additional work", () => {
   ).toBeInTheDocument();
   expect(
     within(additionalWork).getByText(
-      /co-developed with a three-person project team/i
+      "Co-developed with a three-person project team"
     )
   ).toBeInTheDocument();
   expect(

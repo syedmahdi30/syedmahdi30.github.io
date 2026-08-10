@@ -208,7 +208,7 @@ export const projects = [
     status: "Completed",
     dates: { start: "2026", end: "2026", label: "2026" },
     role: "Research engineer and co-author",
-    team: "Three-person project team",
+    team: "three-person project team",
     featured: false,
     featuredOrder: null,
     claimState: "Verified against the supplied paper and Colab notebook",
