@@ -1,134 +1,47 @@
-// Banner.js
-import React, { useState, useEffect, useCallback } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { ArrowRightCircle } from 'react-bootstrap-icons';
-import TrackVisibility from 'react-on-screen';
-import 'animate.css';
+import React from "react";
 
-// Array of headshot images
-const headshots = [
-  "/images/headshot.jpg",
-  "/images/headshot2.jpg",
-  "/images/headshot3.JPG",
-  "/images/headshot4.jpg",
-  "/images/headshot5.JPG",
-  "/images/headshot6.JPG",
-  "/images/headshot7.jpg",
-  "/images/headshot8.jpg",
-  "/images/headshot9.jpg",
-];
-
-const Banner = () => {
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
-  const [currentHeadshotIndex, setCurrentHeadshotIndex] = useState(0);
-  const [isFlipping, setIsFlipping] = useState(false);
-  const period = 1000; // Increased to 1000ms for 1 second pause
-  const [delta, setDelta] = useState(50 - Math.random() * 20);
-
-  const tick = useCallback(() => {
-    const toRotate = ["Software Engineer", "Machine Learning Engineer", "Data Analyst", "Project Manager"];
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period); // This will pause for 1 second before starting to delete
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setDelta(50 - Math.random() * 20); // Reset to original typing speed
-    } else {
-      setDelta(isDeleting ? 50 : 50 - Math.random() * 20); // Keep consistent speed for both typing and deleting
-    }
-  }, [loopNum, isDeleting, text, period]);
-
-  useEffect(() => {
-    let ticker = setInterval(() => tick(), delta);
-    return () => clearInterval(ticker);
-  }, [tick, delta]);
-
-  // Headshot rotation effect
-  useEffect(() => {
-    const headshotInterval = setInterval(() => {
-      // Start the flip animation
-      setIsFlipping(true);
-      
-      // After the flip animation completes, update the image
-      setTimeout(() => {
-        setCurrentHeadshotIndex((prevIndex) => 
-          prevIndex === headshots.length - 1 ? 0 : prevIndex + 1
-        );
-        // Reset the flip state after a small delay to ensure smooth transition
-        setTimeout(() => {
-          setIsFlipping(false);
-        }, 50);
-      }, 1000); // Match this with the CSS transition duration
-    }, 8000); // Change headshot every 8 seconds
-
-    return () => clearInterval(headshotInterval);
-  }, []);
-
-  const openLinkedIn = () => {
-    window.open('https://www.linkedin.com/in/syed-islam-7580401b0/', '_blank');
-  };
-
-  return (
-    <section className="banner" id="home" data-aos="fade-up">
-      <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={7}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>{`Hi! I'm an Aspiring `}<span className="wrap">{text}</span></h1>
-                  <p>Hi, I'm Syed Islam — a Computer Science + Business Applications Graduate from UCR and AI/ML Master's student at UT Austin, where I'll be diving deep into the future of intelligent systems.</p>
-                  <button onClick={openLinkedIn}>
-                    Let's Connect <ArrowRightCircle size={25} />
-                  </button>
-                </div>
-              }
-            </TrackVisibility>
-          </Col>
-          <Col xs={12} md={5}>
-            <div className={`headshot-container ${isFlipping ? 'flipping' : ''}`}>
-              <div className="headshot-inner">
-                <div className="headshot-front">
-                  <img src={headshots[currentHeadshotIndex]} alt="Syed Islam" className="headshot" />
-                </div>
-                <div className="headshot-back">
-                  <img src={headshots[(currentHeadshotIndex + 1) % headshots.length]} alt="Syed Islam" className="headshot" />
-                </div>
-              </div>
-              <div className="headshot-border"></div>
-            </div>
-            <div className="about-me-section">
-              <h3>About Me</h3>
-              <div className="interest-card">
-                <h4>Product Management</h4>
-                <p>Interested in building user-focused products and collaborating with cross-functional teams to deliver meaningful solutions. Passionate about product strategy, problem-solving, and driving impact through iteration.</p>
-              </div>
-              <div className="interest-card">
-                <h4>Machine Learning</h4>
-                <p>Fascinated by the potential of AI/ML to solve real-world challenges—particularly in NLP and computer vision. Continuously learning and applying core ML concepts to projects and research.</p>
-              </div>
-              <div className="interest-card">
-                <h4>Full Stack Development</h4>
-                <p>Enjoy developing scalable, intuitive web applications using modern technologies. Comfortable working across the stack and eager to refine both front-end and back-end skills.</p>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-  );
-};
+const Banner = () => (
+  <section className="hero" id="home" aria-labelledby="hero-title">
+    <div className="container hero-grid">
+      <div className="hero-copy">
+        <p className="section-index" aria-hidden="true">00 / POSITIONING</p>
+        <h1 id="hero-title">
+          ML systems engineer building reliable infrastructure for intelligent systems.
+        </h1>
+        <p className="hero-deck">
+          I work across LLM tooling, multimodal interpretability, applied ML, and
+          production software—turning experimental models into systems that can be
+          evaluated, operated, and improved.
+        </p>
+        <div className="hero-actions">
+          <a className="button button-primary" href="#work">View selected work</a>
+          <a
+            className="button button-secondary"
+            href="/docs/Syed_Resume_Current%20copy.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Download resume
+          </a>
+        </div>
+        <div className="utility-links" aria-label="Social profiles">
+          <a href="https://github.com/syedmahdi30" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/syed-islam-7580401b0/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+      <figure className="portrait-frame">
+        <img
+          src="/images/headshot-optimized.jpg"
+          alt="Syed Islam"
+          width="1200"
+          height="1500"
+          decoding="async"
+          fetchPriority="high"
+        />
+        <figcaption>Based in California · MS Artificial Intelligence, UT Austin</figcaption>
+      </figure>
+    </div>
+  </section>
+);
 
 export default Banner;

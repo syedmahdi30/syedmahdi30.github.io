@@ -1,200 +1,99 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import { 
-  FaPython, 
-  FaJava, 
-  FaJs, 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaGitAlt, 
-  FaGithub, 
-  FaLinux,
-  FaReact,
-  FaDatabase,
-  FaCode,
-  FaTerminal
-} from 'react-icons/fa';
-import { 
-  SiCplusplus,
-  SiMongodb, 
-  SiPytorch, 
-  SiScikitlearn, 
-  SiTailwindcss, 
-  SiNextdotjs,
-  SiArduino,
-  SiIntellijidea,
-  SiVim,
-  SiApachespark,
-  SiScala
-} from 'react-icons/si';
+import React from "react";
 
-const Experience = () => {
-  const skills = [
-    { icon: <FaPython size={30} />, name: "Python" },
-    { icon: <FaJava size={30} />, name: "Java" },
-    { icon: <FaJs size={30} />, name: "JavaScript" },
-    { icon: <SiCplusplus size={30} />, name: "C++" },
-    { icon: <FaHtml5 size={30} />, name: "HTML" },
-    { icon: <FaCss3Alt size={30} />, name: "CSS" },
-    { icon: <FaDatabase size={30} />, name: "SQL" },
-    { icon: <FaTerminal size={30} />, name: "Shell" },
-    { icon: <SiApachespark size={30} />, name: "Spark" },
-    { icon: <SiScala size={30} />, name: "Scala" },
-    { icon: <FaGitAlt size={30} />, name: "Git" },
-    { icon: <FaGithub size={30} />, name: "GitHub" },
-    { icon: <SiIntellijidea size={30} />, name: "IntelliJ" },
-    { icon: <SiArduino size={30} />, name: "Arduino" },
-    { icon: <SiVim size={30} />, name: "Vim" },
-    { icon: <FaCode size={30} />, name: "QGIS" },
-    { icon: <SiPytorch size={30} />, name: "PyTorch" },
-    { icon: <SiScikitlearn size={30} />, name: "Scikit-learn" },
-    { icon: <SiTailwindcss size={30} />, name: "TailwindCSS" },
-    { icon: <SiNextdotjs size={30} />, name: "Next.js" },
-    { icon: <SiMongodb size={30} />, name: "MongoDB" },
-    { icon: <FaReact size={30} />, name: "React" },
-    { icon: <FaLinux size={30} />, name: "Linux" }
-  ];
+const experiences = [
+  {
+    organization: "Carboncopies Foundation",
+    role: "LLM Infrastructure Intern",
+    dates: "June 2026–present",
+    bullets: [
+      "Architected CarbonGPT, a TypeScript/TanStack Start application unifying a React client with an OpenAI-compatible chat API over a LangChain.js RAG agent.",
+      "Designed Google OAuth sessions, owner-scoped Postgres history, guest-only IndexedDB history, and cross-user isolation tests.",
+      "Delivered live retrieval and citations while replacing a fragile Flowise interface.",
+    ],
+  },
+  {
+    organization: "Algoverse",
+    role: "Research Fellow, VLM Interpretability",
+    dates: "May–September 2026",
+    bullets: [
+      "Investigating how vision-language models encode emotion and appraisal signals across text and images.",
+      "Building a Gemma 3 multimodal pipeline with TransformerLens, ridge probes, unique-effect vectors, and targeted activation steering.",
+      "Working in a four-person research team under weekly mentorship.",
+    ],
+  },
+  {
+    organization: "Carboncopies Foundation",
+    role: "Software Engineer Intern",
+    dates: "June–August 2025",
+    bullets: [
+      "Engineered a role-based API server for secure contributor and administrator CLI operations.",
+      "Migrated the API server from Restbed to Oat++, improving request throughput and maintainability.",
+      "Designed an export API for connectome data including neuron types, 3D locations, and synapse details.",
+    ],
+  },
+];
 
-  const experiences = [
-    {
-      title: "Software Engineer Intern — Carboncopies Foundation",
-      period: "June 2025 – Present",
-      logo: "/images/carboncopies.jpg",
-      responsibilities: [
-        "Unified diverse front-end scripts into a standardized Python client, ensuring backward compatibility and comprehensive documentation for new integrations.",
-        "Engineered robust user-password authentication with role-based privilege levels (contributor/admin) for API server connections, enabling secure CLI-based access and integrated user administration.",
-        "Spearheaded migration of API server from Restbed to Oat++ library, significantly improving communication efficiency with front-end Python scripts.",
-        "Developed and integrated virtualized optogenetic stimulation into a neuroscience simulation platform, enabling precise control and activation of genetically modified neurons.",
-        "Designed and implemented a new API for exporting detailed connectome data, including neuron types, 3D locations, and specific synapse details, significantly boosting researcher accessibility.",
-        "Conducted a comprehensive feasibility study for GPU rendering, delivering a functional SYCL-based C++ implementation for parallel 3D voxel-to-2D image transformation, and providing critical documentation for future platform-wide GPU integration."
-      ]
-    },
-    {
-      title: "Web Developer — Association of Computing Machinery at UCR",
-      period: "Sep, 2023 – Jun, 2025",
-      logo: "/images/acm-ucr.png",
-      responsibilities: [
-        "Developed visually appealing UI components for multiple student organizations using React.",
-        "Optimized UI displays across devices for improved responsiveness.",
-        "Leveraged Tailwind CSS utility classes to build and style reusable UI components.",
-        "Leveraged Next.js to build and statically deploy a high-performance website, optimizing for faster load times and better user experience.",
-        "Established a Continuous Integration pipeline via GitHub Actions to automatically build, test, and validate code changes."
-      ]
-    },
-    {
-      title: "Workshop Lead & Marketing Assistant — BearHack 2025",
-      period: "Jan 2025 – May 2025",
-      logo: "/images/bearhack.png",
-      responsibilities: [
-        " Led a technical Git workshop for over 50 multidisciplinary participants, introducing version control fundamentals and hands-on Git/GitHub workflows tailored for beginners",
-        " Spearheaded marketing campaigns across 5+ platforms (Instagram, LinkedIn, Discord, campus flyers) to boost event awareness and drive student engagement",
-        " Helped increase BearHack 2025 registrations by 35% from the previous year through strategic outreach and direct student communication",
-        " Collaborated with a team of organizers to coordinate 3+ promotional events, assisting in outreach to sponsors and university departments"
-      ]
-    },
-    {
-      title: "Research and Development Team Member — AI Student Collective (AISC) at UCR",
-      period: "Nov, 2024 – Present",
-      logo: "/images/aisc.jpg",
-      responsibilities: [
-        "Connected students with professors for AI-focused research opportunities, fostering academic and professional growth",
-        "Authored newsletters and articles to keep students informed about the latest developments in AI and emerging trends",
-        "Curated and shared internship opportunities to help students explore and advance their careers in the AI domain",
-        "Taught AI literacy to university and K-12 students, providing accessible and engaging learning opportunities",
-        "Encouraged and guided students to branch out into the AI space through organized events and resources"
-      ]
-    },
-    {
-      title: "Kitchen Manager — Chick-fil-A",
-      period: "Mar, 2022 – Mar, 2024",
-      logo: "/images/chickfila.png",
-      responsibilities: [
-        "Supervised and coordinated a team of 20+ kitchen staff, ensuring efficient operations and adherence to food safety standards",
-        "Conducted training sessions to onboard new team members and promote continuous skill development",
-        "Motivated and mentored kitchen staff, providing guidance and feedback to enhance performance",
-        "Managed inventory levels, placed orders with vendors, and monitored food costs to control expenses",
-        "Implemented process improvements to streamline kitchen workflows, resulting in 16% increased productivity",
-        "Ensured compliance with health codes, safety regulations, and Chick-fil-A's operational standards"
-      ]
-    },
-  ];
+const capabilityGroups = [
+  {
+    title: "ML systems",
+    items: ["PyTorch", "scikit-learn", "Transformers", "TransformerLens", "RAG", "activation steering", "evaluation", "vLLM"],
+  },
+  {
+    title: "Data & infrastructure",
+    items: ["Python", "SQL", "Postgres", "pgvector", "ChromaDB", "Apache Spark", "Docker", "Linux"],
+  },
+  {
+    title: "Software systems",
+    items: ["TypeScript", "C++", "React", "TanStack Start", "FastAPI", "REST APIs", "OAuth", "testing"],
+  },
+];
 
-  const certifications = [
-    {
-      image: "/images/productmanagement.jpeg",
-      title: "Product Management - Udemy"
-    },
-    {
-      image: "/images/aipm.jpeg",
-      title: "AI Product Management - Coursera"
-    },
-    {
-      image: "/images/mathematics.jpeg",
-      title: "Mathematics of Machine Learning - Coursera"
-    }
-  ];
-
-  const responsive = {
-    superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
-    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
-    tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
-    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
-  };
-
-  return (
-    <section className="experience" id="experience" data-aos="fade-up">
-      <Container>
-        <h2>Technical Skills</h2>
-        <div className="skill-icons">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-icon">
-              <div className="icon-circle">
-                {skill.icon}
+const Experience = () => (
+  <>
+    <section className="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div className="container">
+        <div className="section-heading">
+          <p className="section-index">02 / EXPERIENCE</p>
+          <div>
+            <h2 id="experience-title">Experience</h2>
+            <p>Research and engineering work across LLM infrastructure, model interpretability, APIs, data systems, and scientific software.</p>
+          </div>
+        </div>
+        <div className="timeline">
+          {experiences.map((experience) => (
+            <article className="timeline-item" key={`${experience.organization}-${experience.role}`}>
+              <div className="timeline-marker" aria-hidden="true" />
+              <div className="timeline-date">{experience.dates}</div>
+              <div className="timeline-content">
+                <p className="organization">{experience.organization}</p>
+                <h3>{experience.role}</h3>
+                <ul>{experience.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
               </div>
-              <p>{skill.name}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section className="section capabilities-section" aria-labelledby="capabilities-title">
+      <div className="container">
+        <div className="section-heading">
+          <p className="section-index">03 / CAPABILITIES</p>
+          <div>
+            <h2 id="capabilities-title">How I work</h2>
+            <p>I combine experimental rigor with production-minded software engineering: explicit interfaces, reproducible evaluation, and systems that other people can operate.</p>
+          </div>
+        </div>
+        <div className="capability-grid">
+          {capabilityGroups.map((group) => (
+            <div className="capability-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
           ))}
         </div>
-        
-        <h2 style={{ marginTop: '60px' }}>Experience</h2>
-        <div className="experience-timeline">
-          {experiences.map((exp, index) => (
-            <Row key={index} className="experience-item">
-              <Col md={3} className="company-logo">
-                <img src={exp.logo} alt={exp.title} />
-              </Col>
-              <Col md={9} className="experience-content">
-                <div className="experience-header">
-                  <h3>{exp.title}</h3>
-                  <span className="period">{exp.period}</span>
-                </div>
-                <ul className="responsibilities">
-                  {exp.responsibilities.map((resp, idx) => (
-                    <li key={idx}>{resp}</li>
-                  ))}
-                </ul>
-              </Col>
-            </Row>
-          ))}
-        </div>
-
-        <h2 style={{ marginTop: '60px' }}>Certifications</h2>
-        <p>Here are some of the certifications I am working on along my learning journey. I will update this as soon as I get my hands on the certificates.</p>
-        <div className="certifications-box">
-          <Carousel responsive={responsive} infinite={true} className="certifications-slider">
-            {certifications.map((cert, index) => (
-              <div key={index} className="item">
-                <img src={cert.image} alt={`Certification ${index + 1}`} />
-                <h5>{cert.title}</h5>
-              </div>
-            ))}
-          </Carousel>
-        </div>
-      </Container>
+      </div>
     </section>
-  );
-};
+  </>
+);
 
-export default Experience; 
+export default Experience;

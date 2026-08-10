@@ -1,29 +1,30 @@
-// App.js
-import React, { useEffect} from 'react';
-import NavigationBar from './components/NavigationBar';
-import Banner from './components/Banner';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './App.css';
+import React from "react";
+import NavigationBar from "./components/NavigationBar";
+import Banner from "./components/Banner";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
   return (
-    <div className="App">
+    <div className="site-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <NavigationBar />
-      <Banner />
-      <Experience />
-      <Projects />
+      <main id="main-content">
+        <Banner />
+        <Projects />
+        <Experience />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
 }
 
 export default App;
-
