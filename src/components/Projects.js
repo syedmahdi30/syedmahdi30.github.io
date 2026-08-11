@@ -63,7 +63,7 @@ const AdditionalProject = ({ project }) => (
       </div>
       <h4>{project.title}</h4>
       <p className="project-outcome">{project.oneLineOutcome}</p>
-      <p className="additional-project-team">Co-developed with a {project.team}</p>
+      <p className="additional-project-team">{project.collaboration}</p>
       <p className="additional-project-evidence">
         <span>Evidence</span> {project.metrics.join(" · ")}
       </p>
@@ -108,7 +108,7 @@ const Projects = () => (
           <p className="section-index">SUPPORTING PROJECT</p>
           <div>
             <h3 id="additional-work-title">Additional work</h3>
-            <p>Applied RAG and evaluation work that complements the flagship systems above.</p>
+            <p>Applied data, retrieval, and evaluation work that complements the flagship systems above.</p>
           </div>
         </div>
         <div className="additional-project-list" role="list" aria-label="Additional projects">

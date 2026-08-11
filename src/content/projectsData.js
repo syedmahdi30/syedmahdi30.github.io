@@ -208,7 +208,7 @@ export const projects = [
     status: "Completed",
     dates: { start: "2026", end: "2026", label: "2026" },
     role: "Research engineer and co-author",
-    team: "three-person project team",
+    collaboration: "Co-developed with a three-person project team.",
     featured: false,
     featuredOrder: null,
     claimState: "Verified against the supplied paper and Colab notebook",
@@ -275,6 +275,84 @@ export const projects = [
       title: "Bilingual medical terminology RAG benchmark — Syed Islam",
       description:
         "A local RAG prototype and exploratory five-model benchmark over 8,971 Chinese-English medical terms.",
+    },
+  },
+  {
+    slug: "chicago-crime-data-analysis",
+    title: "Chicago crime data analysis",
+    shortTitle: "Chicago crime data analysis",
+    oneLineOutcome:
+      "Led a five-person team building a Spark and Scala pipeline for Chicago crime data, spanning ZIP-code spatial enrichment, Parquet preparation, spatiotemporal analysis, and arrest prediction.",
+    categories: ["Data engineering", "Geospatial analytics", "Applied ML"],
+    status: "Completed",
+    dates: { start: "2025", end: "2025", label: "2025" },
+    role: "Project lead and data engineer",
+    collaboration:
+      "Led a five-person course team across data engineering, spatial analysis, visualization, and modeling.",
+    featured: false,
+    featuredOrder: null,
+    claimState:
+      "Repository-supported scope with owner-confirmed leadership and cross-pipeline contribution",
+    problem:
+      "Turn a large public crime dataset into a reusable pipeline for geographic, temporal, and predictive analysis.",
+    constraints: [
+      "A 14-million-point source dataset with smaller development samples",
+      "Spatial enrichment against Census ZIP-code boundaries",
+      "Course-scale compute, delivery time, and five-person coordination",
+    ],
+    systemSummary:
+      "A Spark and Scala pipeline enriches crime records through spatial ZIP-code joins, stores prepared data in Parquet, produces geographic and temporal analyses, and trains an arrest classifier from crime text features.",
+    architecture: [
+      "Spark DataFrames, Spark SQL, and Beast spatial joins",
+      "Parquet preparation with ZIP-level and spatiotemporal outputs",
+      "Spark ML text features and logistic-regression arrest prediction",
+    ],
+    contributions: [
+      "Led a five-person team across planning, integration, and delivery.",
+      "Contributed to spatial joins, Parquet preparation, analysis, and visualization.",
+      "Implemented and refined the Spark ML arrest-prediction pipeline.",
+    ],
+    decisions: [
+      "Use Parquet as the shared columnar boundary between preparation and analysis stages.",
+      "Combine crime type and description text before hashed-feature classification.",
+      "Use a seeded 80/20 split so model comparisons remain reproducible.",
+    ],
+    evaluation: [
+      "ZIP-level, temporal, and rectangular spatiotemporal analysis outputs",
+      "Held-out classifier precision, recall, and training-time measurement",
+    ],
+    metrics: [
+      "14 million crime points · ZIP-code spatial join · Parquet pipeline · Spark ML arrest prediction",
+    ],
+    results: [
+      "Delivered an integrated workflow spanning data preparation, geospatial analysis, visualization, and predictive modeling.",
+    ],
+    limitations: [
+      "The public branch preserves the assignment scope and arrest-model implementation, but not the final report or measured metric values.",
+      "Arrest prediction uses only crime type and description text and should not be interpreted as an operational decision system.",
+    ],
+    technologies: [
+      "Scala",
+      "Apache Spark",
+      "Spark SQL",
+      "Spark MLlib",
+      "Beast",
+      "Parquet",
+      "QGIS",
+    ],
+    artifacts: [
+      {
+        label: "View source",
+        href: "https://github.com/syedmahdi30/cs167-final-project/tree/a-5",
+        type: "source",
+      },
+    ],
+    trace:
+      "crime records + Census boundaries → spatial ZIP enrichment → Parquet + analytics → arrest prediction",
+    seo: {
+      title: "Chicago crime data analysis — Syed Islam",
+      description:
+        "A Spark and Scala pipeline for geospatial crime analysis, Parquet processing, and arrest prediction.",
     },
   },
 ];

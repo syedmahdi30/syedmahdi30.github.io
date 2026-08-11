@@ -29,7 +29,32 @@ test("renders the three flagship projects in priority order", () => {
   ]);
 });
 
-test("renders the healthcare RAG benchmark as additional work", () => {
+test("renders supporting projects in newest-to-oldest order", () => {
+  render(<App />);
+
+  const work = screen.getByRole("region", { name: /selected work/i });
+  const additionalWork = within(work).getByRole("region", {
+    name: /additional work/i,
+  });
+  const additionalProjects = within(additionalWork).getByRole("list", {
+    name: /additional projects/i,
+  });
+  const headings = within(additionalProjects).getAllByRole("heading", {
+    level: 4,
+  });
+
+  expect(headings.map((heading) => heading.textContent)).toEqual([
+    "Bilingual medical terminology RAG benchmark",
+    "Chicago crime data analysis",
+  ]);
+  expect(
+    within(additionalWork).getByText(
+      "Co-developed with a three-person project team."
+    )
+  ).toBeInTheDocument();
+});
+
+test("renders Chicago crime analysis with leadership and bounded evidence", () => {
   render(<App />);
 
   const work = screen.getByRole("region", { name: /selected work/i });
@@ -40,17 +65,50 @@ test("renders the healthcare RAG benchmark as additional work", () => {
   expect(
     within(additionalWork).getByRole("heading", {
       level: 4,
-      name: /bilingual medical terminology rag benchmark/i,
+      name: /chicago crime data analysis/i,
     })
   ).toBeInTheDocument();
   expect(
+    within(additionalWork).getByText("Project lead and data engineer")
+  ).toBeInTheDocument();
+  expect(
     within(additionalWork).getByText(
-      /8,971 terms · 384-dimensional embeddings · 5 local models · 4-query exploratory evaluation/i
+      "Led a five-person course team across data engineering, spatial analysis, visualization, and modeling."
     )
   ).toBeInTheDocument();
   expect(
     within(additionalWork).getByText(
-      "Co-developed with a three-person project team"
+      "14 million crime points · ZIP-code spatial join · Parquet pipeline · Spark ML arrest prediction"
+    )
+  ).toBeInTheDocument();
+  expect(
+    within(additionalWork).getByRole("link", { name: /view source/i })
+  ).toHaveAttribute(
+    "href",
+    "https://github.com/syedmahdi30/cs167-final-project/tree/a-5"
+  );
+  expect(
+    within(additionalWork).queryByText(/80% compression/i)
+  ).not.toBeInTheDocument();
+  expect(
+    within(additionalWork).queryByText(/precision:\s*\d/i)
+  ).not.toBeInTheDocument();
+  expect(
+    within(additionalWork).queryByText(/recall:\s*\d/i)
+  ).not.toBeInTheDocument();
+});
+
+test("renders the healthcare RAG benchmark with bounded evidence", () => {
+  render(<App />);
+
+  const work = screen.getByRole("region", { name: /selected work/i });
+  const additionalWork = within(work).getByRole("region", {
+    name: /additional work/i,
+  });
+
+  expect(
+    within(additionalWork).getByText(
+      /8,971 terms · 384-dimensional embeddings · 5 local models · 4-query exploratory evaluation/i
     )
   ).toBeInTheDocument();
   expect(
